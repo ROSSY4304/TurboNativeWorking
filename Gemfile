@@ -64,5 +64,5 @@ group :test do
   gem "selenium-webdriver"
 end
 # For notifications
-gem 'noticed', '~> 1.6'
+gem 'noticed', '~> 2.8'
 gem 'fcm', '~> 1.0'
