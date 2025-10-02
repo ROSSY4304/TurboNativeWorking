@@ -116,7 +116,7 @@ GEM
       logger
     faraday-net_http (3.4.1)
       net-http (>= 0.5.0)
-    fcm (1.0.8)
+    fcm (2.0.1)
       faraday (>= 1.0.0, < 3.0)
       googleauth (~> 1)
     ffi (1.17.2-aarch64-linux-gnu)
@@ -412,7 +412,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
-  fcm (~> 1.0)
+  fcm (~> 2.0)
   importmap-rails
   jbuilder
   kamal

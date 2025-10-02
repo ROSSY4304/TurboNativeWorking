@@ -65,4 +65,4 @@ group :test do
 end
 # For notifications
 gem 'noticed', '~> 1.6'
-gem 'fcm', '~> 1.0'
+gem 'fcm', '~> 2.0'
