@@ -1,0 +1,951 @@
+Started GET "/" for ::1 at 2025-10-02 23:44:25 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='TurboNativeWorking'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TurboNativeWorking'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/surajpatil/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-8.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/surajpatil/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-8.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 44ms (Views: 4.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='TurboNativeWorking'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-10-02 18:21:01.614313', '2025-10-02 18:21:01.614314') RETURNING "key" /*application='TurboNativeWorking'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+Migrating to CreateUsers (20251002182032)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TurboNativeWorking'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TurboNativeWorking'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251002182032') RETURNING "version" /*application='TurboNativeWorking'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TurboNativeWorking'*/[0m
+Migrating to CreateDeviceTokens (20251002182049)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='TurboNativeWorking'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "device_tokens" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "token" varchar, "platform" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_e99e290457"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='TurboNativeWorking'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_device_tokens_on_user_id" ON "device_tokens" ("user_id") /*application='TurboNativeWorking'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251002182049') RETURNING "version" /*application='TurboNativeWorking'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='TurboNativeWorking'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+Started GET "/" for ::1 at 2025-10-02 23:53:34 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/surajpatil/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-8.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/surajpatil/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-8.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 1.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-10-03 00:08:26 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+  
+ActionController::RoutingError (uninitialized constant HomeController)
+Caused by: ActionDispatch::MissingController (uninitialized constant HomeController)
+Caused by: NameError (uninitialized constant HomeController)
+
+Information for: ActionController::RoutingError (uninitialized constant HomeController):
+  
+
+Information for cause: ActionDispatch::MissingController (uninitialized constant HomeController):
+  
+actionpack (8.0.3) lib/action_dispatch/http/request.rb:102:in `rescue in controller_class_for'
+actionpack (8.0.3) lib/action_dispatch/http/request.rb:98:in `controller_class_for'
+actionpack (8.0.3) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.3) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.3) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.3) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.3) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.1) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.1) lib/rack/etag.rb:29:in `call'
+rack (3.2.1) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.1) lib/rack/head.rb:15:in `call'
+actionpack (8.0.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.3) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.3) lib/active_record/migration.rb:670:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.3) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.3) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.3) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.3) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.1) lib/rack/method_override.rb:28:in `call'
+rack (3.2.1) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/executor.rb:16:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.3) lib/rails/engine.rb:535:in `call'
+puma (7.0.4) lib/puma/configuration.rb:299:in `call'
+puma (7.0.4) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.0.4) lib/puma/thread_pool.rb:346:in `with_force_shutdown'
+puma (7.0.4) lib/puma/request.rb:100:in `handle_request'
+puma (7.0.4) lib/puma/server.rb:506:in `process_client'
+puma (7.0.4) lib/puma/server.rb:265:in `block in run'
+puma (7.0.4) lib/puma/thread_pool.rb:173:in `block in spawn_thread'
+
+Information for cause: NameError (uninitialized constant HomeController):
+  
+activesupport (8.0.3) lib/active_support/inflector/methods.rb:290:in `constantize'
+activesupport (8.0.3) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (8.0.3) lib/action_dispatch/http/request.rb:99:in `controller_class_for'
+actionpack (8.0.3) lib/action_dispatch/http/request.rb:91:in `controller_class'
+actionpack (8.0.3) lib/action_dispatch/routing/route_set.rb:61:in `controller'
+actionpack (8.0.3) lib/action_dispatch/routing/route_set.rb:48:in `serve'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.3) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.3) lib/rails/engine/lazy_route_set.rb:60:in `call'
+rack (3.2.1) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.1) lib/rack/etag.rb:29:in `call'
+rack (3.2.1) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.1) lib/rack/head.rb:15:in `call'
+actionpack (8.0.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.3) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.3) lib/active_record/migration.rb:670:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.3) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.3) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.3) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.3) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.2.1) lib/rack/method_override.rb:28:in `call'
+rack (3.2.1) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/executor.rb:16:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.1) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.3) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.3) lib/rails/engine.rb:535:in `call'
+puma (7.0.4) lib/puma/configuration.rb:299:in `call'
+puma (7.0.4) lib/puma/request.rb:101:in `block in handle_request'
+puma (7.0.4) lib/puma/thread_pool.rb:346:in `with_force_shutdown'
+puma (7.0.4) lib/puma/request.rb:100:in `handle_request'
+puma (7.0.4) lib/puma/server.rb:506:in `process_client'
+puma (7.0.4) lib/puma/server.rb:265:in `block in run'
+puma (7.0.4) lib/puma/thread_pool.rb:173:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2025-10-03 00:08:27 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for ::1 at 2025-10-03 00:13:27 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | GC: 0.0ms)
+Completed 200 OK in 48ms (Views: 8.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 00:13:28 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 7.4ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | GC: 0.8ms)
+Completed 200 OK in 35ms (Views: 8.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 00:13:32 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.2ms)
+Completed 200 OK in 26ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 00:13:47 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.2ms | GC: 1.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | GC: 1.1ms)
+Completed 200 OK in 26ms (Views: 3.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/" for ::1 at 2025-10-03 00:19:12 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | GC: 0.0ms)
+Completed 200 OK in 38ms (Views: 10.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 00:19:18 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 00:19:20 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 00:19:21 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 00:19:23 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 2.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 00:19:24 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 00:19:26 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for ::1 at 2025-10-03 00:19:27 +0530
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 39ms (Views: 0.1ms | ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Started POST "/test_notification" for ::1 at 2025-10-03 00:19:36 +0530
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 27ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 00:19:38 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 00:19:38 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 1.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 00:19:39 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 00:19:39 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/test_notification" for ::1 at 2025-10-03 00:19:40 +0530
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 25ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: teasable-patrimonially-mose.ngrok-free.dev, teasable-patrimonially-mose.ngrok-free.dev
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: teasable-patrimonially-mose.ngrok-free.dev, teasable-patrimonially-mose.ngrok-free.dev
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: teasable-patrimonially-mose.ngrok-free.dev, teasable-patrimonially-mose.ngrok-free.dev
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: teasable-patrimonially-mose.ngrok-free.dev, teasable-patrimonially-mose.ngrok-free.dev
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: teasable-patrimonially-mose.ngrok-free.dev, teasable-patrimonially-mose.ngrok-free.dev
+Started GET "/" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:44 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | GC: 0.0ms)
+Completed 200 OK in 37ms (Views: 8.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:47 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:48 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:50 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:50 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:51 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:52 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.1ms)
+Completed 200 OK in 20ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:53 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:54 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:54 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:55 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:55 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:55 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:56 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:32:56 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:33:07 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 26ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:33:26 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 2.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for 2001:4490:1:c658:f4fe:64ff:feb6:c94e at 2025-10-03 00:33:27 +0530
+Cannot render console from 2001:4490:1:c658:f4fe:64ff:feb6:c94e! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 103.186.120.8 at 2025-10-03 00:33:34 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 3.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for 103.186.120.8 at 2025-10-03 00:33:38 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/test_notification" for 103.186.120.8 at 2025-10-03 00:33:41 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 4.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for 103.186.120.8 at 2025-10-03 00:33:44 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 5.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | GC: 0.0ms)
+Completed 200 OK in 92ms (Views: 16.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for 103.186.120.8 at 2025-10-03 00:33:44 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 1.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for 103.186.120.8 at 2025-10-03 00:33:45 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | GC: 0.3ms)
+Completed 200 OK in 29ms (Views: 1.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/test1" for 103.186.120.8 at 2025-10-03 00:33:47 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 2.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for 103.186.120.8 at 2025-10-03 00:33:47 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.2ms)
+Completed 200 OK in 24ms (Views: 1.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/" for 103.186.120.8 at 2025-10-03 00:57:07 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 9.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | GC: 0.0ms)
+Completed 200 OK in 39ms (Views: 12.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 01:03:14 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | GC: 0.0ms)
+Completed 200 OK in 39ms (Views: 13.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 01:03:17 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 01:07:21 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | GC: 0.0ms)
+Completed 200 OK in 42ms (Views: 15.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 01:07:23 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 2.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 01:07:24 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for ::1 at 2025-10-03 01:07:26 +0530
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 01:08:04 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 3.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 01:08:04 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 01:08:05 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 01:08:06 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 01:08:06 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 01:08:07 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 1.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 01:08:07 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for ::1 at 2025-10-03 01:08:08 +0530
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 4.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for ::1 at 2025-10-03 01:08:09 +0530
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 28ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/test_notification" for ::1 at 2025-10-03 01:08:09 +0530
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 28ms (Views: 0.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 01:08:10 +0530
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for ::1 at 2025-10-03 01:08:10 +0530
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for ::1 at 2025-10-03 01:10:32 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TurboNativeWorking'*/[0m
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 10.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | GC: 0.0ms)
+Completed 200 OK in 47ms (Views: 21.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 103.186.120.8 at 2025-10-03 01:11:26 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 6.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 7.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 103.186.120.8 at 2025-10-03 01:11:29 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 103.186.120.8 at 2025-10-03 01:11:30 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for 103.186.120.8 at 2025-10-03 01:11:32 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for 103.186.120.8 at 2025-10-03 01:11:33 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 1.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for 103.186.120.8 at 2025-10-03 01:11:34 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for 103.186.120.8 at 2025-10-03 01:11:35 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for 103.186.120.8 at 2025-10-03 01:11:36 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 6.8ms (1 query, 0 cached) | GC: 1.7ms)
+
+
+Started GET "/" for 103.186.120.8 at 2025-10-03 01:14:51 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 6.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 8.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for 103.186.120.8 at 2025-10-03 01:15:39 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 16.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | GC: 0.0ms)
+Completed 200 OK in 38ms (Views: 18.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for 103.186.120.8 at 2025-10-03 01:15:40 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for 103.186.120.8 at 2025-10-03 01:15:42 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 3.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for 103.186.120.8 at 2025-10-03 01:15:42 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for 103.186.120.8 at 2025-10-03 01:15:45 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.4ms)
+Completed 200 OK in 26ms (Views: 1.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/test2" for 103.186.120.8 at 2025-10-03 01:15:47 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 2.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/test1" for 103.186.120.8 at 2025-10-03 01:15:48 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test2" for 103.186.120.8 at 2025-10-03 01:15:49 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.3ms)
+Completed 200 OK in 27ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/" for 103.186.120.8 at 2025-10-03 01:16:21 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 2.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/test1" for 103.186.120.8 at 2025-10-03 01:16:23 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test1 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.4ms)
+Completed 200 OK in 26ms (Views: 1.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/test2" for 103.186.120.8 at 2025-10-03 01:16:25 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#test2 as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/test_notification" for 103.186.120.8 at 2025-10-03 01:16:26 +0530
+Cannot render console from 103.186.120.8! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by NotificationsController#test as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1 /*action='test',application='TurboNativeWorking',controller='notifications'*/[0m
+  ↳ app/controllers/notifications_controller.rb:5:in `test'
+Completed 200 OK in 40ms (Views: 0.5ms | ActiveRecord: 7.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card">
+    <h1 class="title"><%= @message %></h1>
+    
+    <div>
+      <%= link_to "Test Page 1", "/test1", class: "button button-blue" %>
+      <%= link_to "Test Page 2", "/test2", class: "button button-green" %>
+      
+      <%= button_to "Send Test Notification", 
+          "/test_notification", 
+          method: :post,
+          class: "button button-red" %>
+    </div>
+    
+    <div class="info-box">
+      <p class="info-text">
+        <strong>User Agent:</strong><br>
+        <%= request.user_agent.to_s.truncate(60) %>
+      </p>
+      <p class="info-text">
+        <strong>Platform:</strong>
+        <span class="turbo-status <%= turbo_native_app? ? 'native' : '' %>">
+          <%= turbo_native_app? ? "📱 Turbo Native" : "🌐 Web Browser" %>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
